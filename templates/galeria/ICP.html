@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ICP Brasil</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'styles/style.css' %}">
+
+</head>
+
+<body>
+    <div class="pagina-inicial">
+        <header class="cabecalho">
+            <img src="{% static '/assets/logo/Qualitycert (1).png' %}" alt="Logo da Quality" />
+            <div class="cabecalho__busca">
+                <div class="busca__fundo">
+                    <input class="busca__input" type="text" placeholder="O que você procura?">
+                    <img class="busca__icone" src="{% static '/assets/ícones/1x/search.png' %}" alt="ícone de search">
+                </div>
+            </div>
+        </header>
+        <main class="principal">
+            <section class="menu-lateral">
+                <nav class="menu-lateral__navegacao">
+                    <a href="{% url 'index' %}"><img src="{% static '/assets/ícones/1x/Home - ativo.png' %}"> Home</a>
+                    <a href="#"><img src="{% static 'assets/ícones/1x/Mais vistas - inativo.png' %}"> Mais vistas</a>
+                    <a href="#"><img src="{% static '/assets/ícones/1x/Novas - inativo.png' %}"> Novas</a>
+                    <a href="#"><img src="{% static '/assets/ícones/1x/Surpreenda-me - inativo.png' %}"> Surpreenda-me</a>
+                </nav>
+            </section>
+            <section class="conteudo">
+                <section class="imagem">
+                    <div class="imagem__conteudo">
+                        <img class="imagem__imagem" src="{% static '/assets/ícones/ICP2.jpg' %}">
+                        <div class="imagem__info">
+                            <div class="imagem__texto">
+                                <p class="imagem__titulo"><h1>ICP Brasil</h1></p>
+                                <p class="imagem__descricao">Certificação a distância </p>
+                                <p class="imagem__texto">A Infraestrutura de Chaves Públicas Brasileiras (ICP-Brasil) é uma cadeia hierárquica de confiança formada por empresas privadas e públicas que garante a emissão de certificados digitais de forma segura e com validade jurídica.
+                                                          <br><br>
+                                    O seu certificado digital é um documento que comprova a autenticidade dos dados e da identidade das pessoas físicas ou jurídicas que acessam os sistemas eletrônicos com informações confidenciais.
+                                                            <br><br>
+                                    Assim, é possível cumprir obrigações trabalhistas, fiscais, contábeis e jurídicas pelo ambiente digital, garantindo a segurança e a validação por lei dessas transações.
+                                    <br><br>
+                                    Nesse sentido, as autoridades certificadoras notaram essa necessidade e passaram a oferecer a modalidade aos seus clientes.</p> <br>
+                                <p class="imagem__texto"> <h1>O que é a ICP-Brasil?</h1> <br>
+                                    A ICP-Brasil foi criada em 2001 por meio da Medida Provisória 2.200-2 para viabilizar a emissão de certificados digitais no país. Ela é formada por uma cadeia hierárquica de órgãos que identificam, de forma virtual, pessoas físicas e jurídicas. Dessa maneira, os documentos com assinatura digital podem ter a mesma validação que aqueles impressos em papel.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </section>
+        </main>
+    </div>
+    <footer class="rodape">
+        <div class="rodape__icones">
+            
+            <a href="{% static 'https://www.instagram.com/grupoqualitycert/' %}" target=”_blank” >
+                <img src="{% static '/assets/ícones/1x/instagram.png' %}" alt="ícone instagram">
+            </a>
+        </div>
+        <p class="rodape__texto">Desenvolvido por Yuri</p>
+    </footer>
+</body>
+
+</html>

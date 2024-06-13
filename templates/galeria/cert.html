@@ -1,0 +1,132 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="{% static '/styles/cert.css' %}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('form').submit(function(event) {
+                // Impedir o envio do formulário
+                event.preventDefault();
+
+                // Reiniciar mensagens de erro
+                $('.error').remove();
+
+                // Verificar campos
+                var nomeCompleto = $('#id_nome_completo').val();
+                var cpf = $('#id_cpf').val();
+                var email = $('#id_email').val();
+                var senha = $('#id_senha').val();
+                var confirmarSenha = $('#id_confirmar_senha').val();
+                var rg = $('#id_rg').val();
+                var cnh = $('#id_cnh').val();
+
+                var erro = false;
+
+                if (nomeCompleto.trim() == '') {
+                    $('#id_nome_completo').after('<p class="error">Por favor, insira seu nome completo.</p>');
+                    erro = true;
+                }
+
+                if (cpf.trim() == '' || cpf.length != 11 || isNaN(cpf)) {
+                    $('#id_cpf').after('<p class="error">Por favor, insira um CPF válido (apenas números).</p>');
+                    erro = true;
+                }
+
+                if (email.trim() == '' || !isValidEmail(email)) {
+                    $('#id_email').after('<p class="error">Por favor, insira um e-mail válido.</p>');
+                    erro = true;
+                }
+
+                if (senha.trim() == '' || senha.length < 8) {
+                    $('#id_senha').after('<p class="error">A senha deve ter pelo menos 8 caracteres.</p>');
+                    erro = true;
+                }
+
+                if (senha != confirmarSenha) {
+                    $('#id_confirmar_senha').after('<p class="error">As senhas não conferem.</p>');
+                    erro = true;
+                }
+
+                if (rg.trim() == '' || rg.length != 9 || isNaN(rg)) {
+                    $('#id_rg').after('<p class="error">Por favor, insira um RG válido (apenas números).</p>');
+                    erro = true;
+                }
+
+                if (cnh.trim() == '' || cnh.length != 11 || isNaN(cnh)) {
+                    $('#id_cnh').after('<p class="error">Por favor, insira uma CNH válida (apenas números).</p>');
+                    erro = true;
+                }
+
+                // Redirecionar para a página de agendamento se não houver erros
+                if (!erro) {
+                    window.location.href = "{% url 'agenda' %}";
+                }
+            });
+
+            // Função para verificar se um e-mail é válido
+            function isValidEmail(email) {
+                var emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+                return emailRegex.test(email);
+            }
+        });
+    </script>
+</head>
+<body>
+    <section class="menu-lateral">
+        <nav class="menu-lateral__navegacao">
+            <a href="{% url 'index' %}"><img src="{% static '/assets/ícones/1x/Home - ativo.png' %}"> Home</a>
+        </nav>
+    </section>
+    <div class="container">
+        <div class="form-container">
+            <h2>Preencha com seus dados!</h2>
+            <form method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="id_nome_completo">Nome completo</label>
+                    <input type="text" id="id_nome_completo" name="nome_completo">
+                </div>
+                <div class="form-group">
+                    <label for="id_cpf">CPF</label>
+                    <input type="text" id="id_cpf" name="cpf">
+                </div>
+                <div class="form-group">
+                    <label for="id_email">E-mail</label>
+                    <input type="email" id="id_email" name="email">
+                </div>
+                <div class="form-group">
+                    <label for="id_senha">Senha</label>
+                    <input type="password" id="id_senha" name="senha">
+                </div>
+                <div class="form-group">
+                    <label for="id_confirmar_senha">Confirmar Senha</label>
+                    <input type="password" id="id_confirmar_senha" name="confirmar_senha">
+                </div>
+                <h3>Documentos</h3>
+                <div class="form-group">
+                    <label for="id_rg">RG</label>
+                    <input type="text" id="id_rg" name="rg">
+                </div>
+                <div class="form-group">
+                    <label for="id_cnh">CNH</label>
+                    <input type="text" id="id_cnh" name="cnh">
+                </div>
+                <label for="modelo">Selecione o modelo:</label>
+                <select id="modelo" name="modelo">
+                    <option value="PF A1">PF A1 - R$ 50</option>
+                    <option value="PJ A1">PJ A1 - R$ 75</option>
+                    <option value="PF A3">PF A3 - R$ 140</option>
+                    <option value="PJ A3">PJ A3 - R$ 260</option>
+                </select>
+                <br><br>
+                <button type="submit">Prosseguir</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

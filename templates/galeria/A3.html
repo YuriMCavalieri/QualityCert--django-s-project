@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificado A3</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'styles/style.css' %}">
+
+</head>
+
+<body>
+    <div class="pagina-inicial">
+        <header class="cabecalho">
+            <img src="{% static '/assets/logo/Qualitycert (1).png' %}" alt="Logo da Quality" />
+            <div class="cabecalho__busca">
+                <div class="busca__fundo">
+                    <input class="busca__input" type="text" placeholder="O que você procura?">
+                    <img class="busca__icone" src="{% static '/assets/ícones/1x/search.png' %}" alt="ícone de search">
+                </div>
+            </div>
+        </header>
+        <main class="principal">
+            <section class="menu-lateral">
+                <nav class="menu-lateral__navegacao">
+                    <a href="{% url 'index' %}"><img src="{% static '/assets/ícones/1x/Home - ativo.png' %}"> Home</a>
+                    <a href="#"><img src="{% static 'assets/ícones/1x/Mais vistas - inativo.png' %}"> Mais vistas</a>
+                    <a href="#"><img src="{% static '/assets/ícones/1x/Novas - inativo.png' %}"> Novas</a>
+                    <a href="#"><img src="{% static '/assets/ícones/1x/Surpreenda-me - inativo.png' %}"> Surpreenda-me</a>
+                </nav>
+            </section>
+            <section class="conteudo">
+                <section class="imagem">
+                    <div class="imagem__conteudo">
+                        <img class="imagem__imagem" src="{% static '/assets/imagens/galeria/CA3.jpeg' %}">
+                        <div class="imagem__info">
+                            <div class="imagem__texto">
+                                <p class="imagem__titulo">Certificado digital A3</p>
+                                <p class="imagem__descricao"> </p>
+                                <p class="imagem__texto"> o Certificado Digital A1 é gerado em software e tem validade de um ano, podendo ser armazenado em dispositivos móveis como smartphones e tablets.<br><br>
+                                    O certificado A3 é uma solução que substitui as assinaturas e identificações físicas. Isso porque, além de permitir o uso digital, é um dispositivo que garante a mobilidade do usuário, pois é possível levá-lo para qualquer lugar. Hoje, existem diferentes tipos de certificados digitais, como a identidade digital, o e-CPF ou e-CNPJ, e os modelos profissionais, como o e-Contador e o e-Jurídico. Além disso, aqueles que necessitam emitir notas fiscais podem utilizar o NF-e.
+                                             <br><br>
+                                           <p> <h1>Vantagens e desvantagens</h1></p><br><br>
+                                             Entre as vantagens do Certificado Digital A1 está o fato de que ele é mais acessível e fácil de usar do que outras modalidades de certificado, como o A3. Ele pode ser armazenado em dispositivos móveis e é emitido em software, o que o torna mais prático e econômico para pequenas empresas e profissionais liberais. No entanto, o Certificado Digital A1 apresenta alguns riscos, como a possibilidade de perda ou roubo do dispositivo em que está armazenado, o que pode comprometer a segurança dos dados. Além disso, ele é mais vulnerável a ataques cibernéticos do que outros tipos de certificados
+                                            </p>
+                                <p class="imagem__texto"></p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </section>
+        </main>
+    </div>
+    <footer class="rodape">
+        <div class="rodape__icones">
+           
+            <a href="{% static 'https://www.instagram.com/grupoqualitycert/' %}" target=”_blank” >
+                <img src="{% static '/assets/ícones/1x/instagram.png' %}" alt="ícone instagram">
+            </a>
+        </div>
+        <p class="rodape__texto">Desenvolvido por Yuri</p>
+    </footer>
+</body>
+
+</html>
